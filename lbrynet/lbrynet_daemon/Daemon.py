@@ -934,7 +934,7 @@ class Daemon(AuthJSONRPCServer):
             size = None
             message = None
 
-        claim = yield self.session.wallet.get_claim(lbry_file.claim_id, False)
+        claim = yield self.session.wallet.get_claim(lbry_file.claim_id, check_expire=False)
 
         if claim and 'value' in claim:
             metadata = claim['value']
